@@ -55,6 +55,10 @@ body {
   background-color: var(--grid-bg) !important;
 }
 
+.dice.disabled {
+  cursor: not-allowed;
+}
+
 section {
   display: flex;
   justify-content: center;
