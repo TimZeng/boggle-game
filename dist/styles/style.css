@@ -30,14 +30,12 @@
 
 html,
 body {
-  color: var(--font-color);
   font-family: 'Lato', 'Arial', sans-serif;
   font-weight: 400;
   font-size: 20px;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
   position: relative;
-  min-height: 100vh;
 }
 
 .container {
@@ -45,10 +43,6 @@ body {
   width: 410px;
   margin: 30px auto;
   padding-bottom: 25px;
-}
-
-.light-text {
-  color: var(--font-color-light);
 }
 
 .selected {
@@ -133,7 +127,7 @@ header {
 }
 
 #scores {
-  width: 175px;
+  width: 176px;
   background-color: var(--border);
   border: 5px solid var(--border);
   display: grid;
@@ -143,7 +137,7 @@ header {
 
 .score {
   display: grid;
-  grid-template-columns: 110px 50px;
+  grid-template-columns: 110px 51px;
   grid-gap: 5px;
 }
 

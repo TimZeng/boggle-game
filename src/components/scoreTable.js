@@ -14,7 +14,7 @@ export const ScoreTable = ({ scoreTable }) => {
             {
               scoreTable.map(el =>
                 <p key={el.word} className='score'>
-                  <span>{el.word.toLowerCase()}</span>
+                  <span>{el.word}</span>
                   <span>{el.score}</span>
                 </p>
               )

@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
-import dicesReducer from './reducer_dices';
+import boardReducer from './reducer_board';
 import currentSelectionReducer from './reducer_currentSelection';
 import scoreTableReducer from './reducer_scoreTable';
 
 const rootReducer = combineReducers({
-  dices: dicesReducer,
+  board: boardReducer,
   currentSelection: currentSelectionReducer,
   scoreTable: scoreTableReducer
 });

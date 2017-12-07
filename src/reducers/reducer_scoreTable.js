@@ -8,8 +8,6 @@ export default ( state = [], action ) => {
 
     case SUBMIT_WORD:
       const word = action.payload;
-      const index = state.findIndex(el => el.word === word);
-      if ( index >= 0 ) return state;
       return [ ...state, { word, score: ( word.length >= 8 ? 11 : scores[word.length] ) } ];
 
     default:

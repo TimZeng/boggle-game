@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { addChar, removeChar, resetChar, submitWord } from '../actions';
+import { generateBoard, addChar, removeChar, resetChar, submitWord } from '../actions';
 import { Board, Tracking, ScoreTable } from '../components';
 
 class App extends Component {
+  componentWillMount() {
+    this.props.generateBoard();
+  }
 
   handleDiceClick = (text, row, col, selected) => {
     if ( selected ) {
@@ -23,7 +26,7 @@ class App extends Component {
   }
 
   render() {
-    const { dices, currentSelection, scoreTable } = this.props;
+    const { board, currentSelection, scoreTable } = this.props;
     const currentWord = currentSelection.map(el => el.char).join('');
     return (
       <div className='container'>
@@ -32,7 +35,7 @@ class App extends Component {
         </header>
 
         <Board
-          dices={ dices }
+          board={ board }
           selection={ currentSelection }
           onClick={ this.handleDiceClick }
         />
@@ -46,11 +49,12 @@ class App extends Component {
   }
 };
 
-const mapStateToProps = ({ dices, currentSelection, scoreTable }) =>
-({ dices, currentSelection, scoreTable });
+const mapStateToProps = ({ board, currentSelection, scoreTable }) =>
+({ board, currentSelection, scoreTable });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  addChar, removeChar, resetChar, submitWord
+  generateBoard, addChar, removeChar, resetChar, submitWord
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
