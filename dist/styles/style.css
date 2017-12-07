@@ -91,6 +91,7 @@ header {
 }
 
 .dice {
+  cursor: pointer;
   height: 50px;
   background-color: #fff;
   color: black;
