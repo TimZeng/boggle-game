@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-const data = ['A','A','A','A','A','A','A','A','A','A','A','A','A','A','A','A','A','A','A','A','A','A','A','A','A'];
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
@@ -13,7 +12,7 @@ class App extends Component {
         <section>
           <div id='board'>
             {
-              data.map(el => <div className='dice'>{el}</div>)
+              this.props.dices.map(el => <div className='dice'>{el}</div>)
             }
           </div>
         </section>
@@ -44,4 +43,6 @@ class App extends Component {
   }
 };
 
-export default App;
+const mapStateToProps = ({ dices }) => ({ dices });
+
+export default connect(mapStateToProps)(App);
