@@ -1,8 +1,6 @@
 # boggle-game
 Browser-based version of the game Boggle.
 
-![Screenshot](/dist/images/Screenshot.png?raw=true "Boggle Game")
-
 ### Running the project
 
 ```
@@ -10,6 +8,8 @@ Browser-based version of the game Boggle.
   > npm start
   > visit http://localhost:8080
 ```
+
+![Screenshot](/dist/images/Screenshot.png?raw=true "Boggle Game")
 
 ## Built With
 
