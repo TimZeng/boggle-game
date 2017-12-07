@@ -9,7 +9,7 @@ Browser-based version of the game Boggle.
   > visit http://localhost:8080
 ```
 
-![Screenshot](/dist/images/Screenshot.png?raw=true "Boggle Game")
+![Screenshot](/dist/images/app.png?raw=true "Boggle Game")
 
 ## Built With
 
