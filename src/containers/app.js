@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { addChar, removeChar } from '../actions';
+import { addChar, removeChar, resetChar, submitWord } from '../actions';
 import { Board, Tracking, ScoreTable } from '../components';
 
 class App extends Component {
@@ -15,8 +15,15 @@ class App extends Component {
     }
   }
 
+  handleSubmit = word => {
+    if ( !!word && this.props.scoreTable.findIndex(el => el.word === word) < 0 ) {
+      this.props.submitWord(word);
+      this.props.resetChar();
+    }
+  }
+
   render() {
-    const { dices, currentSelection } = this.props;
+    const { dices, currentSelection, scoreTable } = this.props;
     const currentWord = currentSelection.map(el => el.char).join('');
     return (
       <div className='container'>
@@ -30,17 +37,20 @@ class App extends Component {
           onClick={ this.handleDiceClick }
         />
 
-        <Tracking currentWord={ currentWord } />
-        <ScoreTable />
+        <Tracking currentWord={ currentWord } onClick={ this.handleSubmit } />
+
+        <ScoreTable scoreTable={ scoreTable } />
 
       </div>
     )
   }
 };
 
-const mapStateToProps = ({ dices, currentSelection }) =>
-({ dices, currentSelection });
+const mapStateToProps = ({ dices, currentSelection, scoreTable }) =>
+({ dices, currentSelection, scoreTable });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ addChar, removeChar }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  addChar, removeChar, resetChar, submitWord
+}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

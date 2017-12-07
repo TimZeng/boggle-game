@@ -1,4 +1,4 @@
-import { ADD_CHAR, REMOVE_CHAR } from '../actions';
+import { ADD_CHAR, REMOVE_CHAR, RESET_CHAR } from '../actions';
 
 export default ( state = [], action ) => {
 
@@ -9,6 +9,9 @@ export default ( state = [], action ) => {
 
     case REMOVE_CHAR:
       return state.slice( 0, state.length - 1 );
+
+    case RESET_CHAR:
+      return [];
 
     default:
       return state;
